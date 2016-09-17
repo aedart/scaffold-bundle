@@ -31,3 +31,27 @@ if (! function_exists('get_license_list')) {
         ];
     }
 }
+
+if (! function_exists('git_user_name')) {
+
+    /**
+     * Returns the git global config user.name
+     *
+     * @return string
+     */
+    function git_user_name(){
+        return exec('git config --global user.name');
+    }
+}
+
+if (! function_exists('git_user_email')) {
+
+    /**
+     * Returns the git global config user.email
+     *
+     * @return string
+     */
+    function git_user_email(){
+        return exec('git config --global user.email');
+    }
+}
