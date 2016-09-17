@@ -32,6 +32,23 @@ if (! function_exists('get_license_list')) {
     }
 }
 
+if (! function_exists('get_composer_type_list')) {
+
+    /**
+     * Returns list of supported composer package types
+     *
+     * @return array
+     */
+    function get_composer_type_list(){
+        return [
+            'library',
+            'project',
+            'metapackage',
+            'composer-plugin'
+        ];
+    }
+}
+
 if (! function_exists('git_user_name')) {
 
     /**
