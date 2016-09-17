@@ -1,0 +1,8 @@
+coverage:
+    enabled: true
+    whitelist:
+        include:
+            - src/*
+        exclude:
+            - tests/*
+            - vendor/*
