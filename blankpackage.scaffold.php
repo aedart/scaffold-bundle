@@ -77,7 +77,7 @@ return [
     | ...etc
     */
     'folders' => [
-
+        'src'
     ],
 
     /* ------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     | NOTE: The files are read from inside the 'basePath'.
     */
     'files' => [
-        // Source files (inside 'basePath')  =>  Destination
+        'files/.gitignore'      => '.gitignore'
     ],
 
     /* ------------------------------------------------------------
