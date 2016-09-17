@@ -193,6 +193,22 @@ return [
         ],
 
         /*
+         * Package description
+         */
+        'packageDesc' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Description of the package?',
+
+            'value'         => '',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return trim($answer);
+            }
+        ],
+
+        /*
          * PSR-4 autoload - the package's top-level namespace
          */
         'psr4' => [
