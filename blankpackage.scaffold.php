@@ -100,7 +100,8 @@ return [
     | NOTE: The files are read from inside the 'basePath'.
     */
     'files' => [
-        'files/.gitignore'      => '.gitignore'
+        'files/.gitignore'      => '.gitignore',
+        'files/README.md'       => 'README.md'
     ],
 
     /* ------------------------------------------------------------
