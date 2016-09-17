@@ -15,7 +15,7 @@ return [
      | This name is displayed in the list of available templates,
      | when the CLI command is invoked.
      */
-    'name'          => 'package',
+    'name'          => 'Blank Package',
 
     /* ------------------------------------------------------------
      | Description of this Scaffold
