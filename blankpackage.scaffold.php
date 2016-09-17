@@ -3,13 +3,16 @@
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 
-return [
+/* ------------------------------------------------------------
+ | Require helpers
+ * ------------------------------------------------------------ */
+require __DIR__ . '/helpers/helpers.php';
 
-    /* ------------------------------------------------------------
-     | package Scaffold Configuration
-     | ------------------------------------------------------------
-     |
-     */
+/* ------------------------------------------------------------
+ |  The scaffold configuration
+ * ------------------------------------------------------------ */
+
+return [
 
     /* ------------------------------------------------------------
      | Name of this Scaffold
@@ -222,6 +225,20 @@ return [
             'postProcess'   => function($answer, array $previousAnswers){
                 return explode(',', $answer);
             }
+        ],
+
+        /*
+         * Package License
+         */
+        'license' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
+
+            'question'      => 'License of the package?',
+
+            'choices'       => get_license_list(),
+
+            'value'         => 'BSD-3-Clause',
         ],
 
         /*
