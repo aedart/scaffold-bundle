@@ -110,6 +110,8 @@ $scaffold['templates'] = [
  * ------------------------------------------------------------ */
 
 $scaffold['scripts'] = [
+
+    // Run composer install
     function(array $config){
 
         // NOTE: Composer actually yields output to STDERR... But why, just why !?!
@@ -121,7 +123,31 @@ $scaffold['scripts'] = [
             'timeout'   => 60,
             'script'    => $script
         ]);
-    }
+    },
+
+    // Bootstrap codeception
+    function(array $config){
+        $script = 'cd ' . $config['outputPath'] . ' && vendor/bin/codecept bootstrap';
+
+        return new \Aedart\Scaffold\Scripts\CliScript([
+            'timeout'   => 15,
+            'script'    => $script
+        ]);
+    },
+
+    // Append code coverage configuration to codeception.yml
+    function(array $config){
+
+        $input = $config['basePath'] . 'files/codeception-coverage.txt';
+        $destination = 'codeception.yml';
+
+        $script = 'cd ' . $config['outputPath'] . ' && cat ' . $input . ' >> ' . $destination;
+
+        return new \Aedart\Scaffold\Scripts\CliScript([
+            'timeout'   => 5,
+            'script'    => $script
+        ]);
+    },
 ];
 
 /* ------------------------------------------------------------
