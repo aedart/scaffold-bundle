@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Str;
+use InvalidArgumentException;
+
 return [
 
     /* ------------------------------------------------------------
@@ -174,17 +177,47 @@ return [
 
             'postProcess'   => function($answer, array $previousAnswers){
                 if(strpos($answer, '/') === false){
-                    throw new \InvalidArgumentException('Name of the package must consists of vendor name and project name, separated by /.');
+                    throw new InvalidArgumentException('Name of the package must consists of vendor name and project name, separated by /.');
                 }
+
+                // Trim and replace eventual whitespaces and underscores
+                $answer = trim($answer);
+                $answer = str_replace([' ', '_'], '-', $answer);
 
                 // Remove eventual quotes - don't see why people would try!?
                 $answer = str_replace('"', '', $answer);
                 $answer = str_replace("'", '', $answer);
 
-                return strtolower(trim($answer));
+                return strtolower($answer);
             }
         ],
 
+        /*
+         * PSR-4 autoload - the package's top-level namespace
+         */
+        'psr4' => [
+            'postProcess'   => function($answer, array $previousAnswers){
+                $packageName = $previousAnswers['packageName'];
+
+                // Split the package name
+                $parts = explode('/', $packageName);
+
+                // Fetch the vendor and name
+                $vendor = $parts[0];
+                $name = $parts[1];
+
+                $vendor = Str::studly($vendor) . '\\';
+                $name = str_replace(' ', '\\', ucwords(str_replace(['-'], ' ', $name))) . '\\';
+
+                $psr4 = [
+                    $vendor . $name => 'src/'
+                ];
+
+                $encoded = json_encode($psr4, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+
+                return trim(substr($encoded, 1, -1));
+            }
+        ]
     ],
 
     /* ------------------------------------------------------------
