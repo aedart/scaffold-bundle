@@ -161,6 +161,30 @@ return [
     */
     'templateData' => [
 
+        /*
+         * Package name
+         */
+        'packageName' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Name of the package?',
+
+            'value'         => '',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                if(strpos($answer, '/') === false){
+                    throw new \InvalidArgumentException('Name of the package must consists of vendor name and project name, separated by /.');
+                }
+
+                // Remove eventual quotes - don't see why people would try!?
+                $answer = str_replace('"', '', $answer);
+                $answer = str_replace("'", '', $answer);
+
+                return strtolower(trim($answer));
+            }
+        ],
+
     ],
 
     /* ------------------------------------------------------------
@@ -201,7 +225,16 @@ return [
     | directory of where the scaffold is being installed into!
     */
     'templates' => [
+        'blankComposer' => [
+            'source'        => 'snippets/blank-composer.json.twig',
 
+            'destination'   => [
+
+                'postProcess'   => function($answer, array $previousAnswers){
+                    return 'composer.json';
+                }
+            ],
+        ],
     ],
 
     /* ------------------------------------------------------------
