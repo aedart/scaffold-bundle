@@ -209,6 +209,22 @@ return [
         ],
 
         /*
+         * Package keywords
+         */
+        'packageKeywords' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Keywords (comma separated)?',
+
+            'value'         => '',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return explode(',', $answer);
+            }
+        ],
+
+        /*
          * PSR-4 autoload - the package's top-level namespace
          */
         'psr4' => [

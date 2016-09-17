@@ -2,11 +2,15 @@
     "name": "{{ packageName }}",
     "description": "{{ packageDesc }}",
     "keywords": [
-        "Scaffolds",
-        "Templates",
-        "Snippets"
-    ],
-    "homepage": "https://github.com/aedart/scaffold-bundle",
+{% for key, keyword in packageKeywords %}
+    {% if loop.last %}
+"{{ keyword|trim|capitalize }}"
+    {% else %}
+"{{ keyword|trim|capitalize }}",
+    {% endif %}
+{% endfor %}
+],
+    "homepage": "",
     "license": "BSD-3-Clause",
     "type": "library",
     "authors": [
