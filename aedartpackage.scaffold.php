@@ -23,7 +23,8 @@ $scaffold['description'] = 'Aedart specific package';
  * ------------------------------------------------------------ */
 
 $scaffold['files'] = [
-    'files/.gitignore'      => '.gitignore'
+    'files/.gitignore'      => '.gitignore',
+    'files/.travis.yml'     => '.travis.yml'
 ];
 
 /* ------------------------------------------------------------
