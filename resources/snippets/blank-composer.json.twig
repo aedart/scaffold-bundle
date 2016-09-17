@@ -10,7 +10,9 @@
     {% endif %}
 {% endfor %}
 ],
-    "homepage": "",
+{% if homepage %}
+    "homepage": "{{ homepage }}",
+{% endif %}
     "license": "{{ license }}",
     "type": "{{ packageType }}",
     "authors": [

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Str;
-use InvalidArgumentException;
 
 /* ------------------------------------------------------------
  | Require helpers
@@ -225,6 +224,31 @@ return [
 
             'postProcess'   => function($answer, array $previousAnswers){
                 return explode(',', $answer);
+            }
+        ],
+
+        /*
+         * Project website URL
+         */
+        'homepage' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::QUESTION,
+
+            'question'      => 'Project website URL ("null" if not applied)?',
+
+            'value'         => 'null',
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                // Don't validate if left out
+                if($answer == 'null'){
+                    return '';
+                }
+
+                if(!filter_var($answer, FILTER_VALIDATE_URL) === false){
+                    return $answer;
+                }
+
+                throw new \InvalidArgumentException(sprintf('URL "%s" is invalid', $answer));
             }
         ],
 
