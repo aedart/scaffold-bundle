@@ -228,6 +228,20 @@ return [
         ],
 
         /*
+         * Package License
+         */
+        'license' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
+
+            'question'      => 'License of the package?',
+
+            'choices'       => get_license_list(),
+
+            'value'         => 'BSD-3-Clause',
+        ],
+
+        /*
          * Package Author
          */
         'author' => [
@@ -257,20 +271,6 @@ return [
 
                 throw new \InvalidArgumentException(sprintf('Email "%s" is invalid', $answer));
             }
-        ],
-
-        /*
-         * Package License
-         */
-        'license' => [
-
-            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
-
-            'question'      => 'License of the package?',
-
-            'choices'       => get_license_list(),
-
-            'value'         => 'BSD-3-Clause',
         ],
 
         /*
