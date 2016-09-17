@@ -288,6 +288,20 @@ return [
         ],
 
         /*
+         * Minimum Stability
+         */
+        'minStability' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
+
+            'question'      => 'Type of package?',
+
+            'choices'       => get_composer_min_stability_list(),
+
+            'value'         => 'stable',
+        ],
+
+        /*
          * PSR-4 autoload - the package's top-level namespace
          */
         'psr4' => [
