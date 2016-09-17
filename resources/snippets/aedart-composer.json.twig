@@ -1,0 +1,41 @@
+{
+    "name": "{{ packageName }}",
+    "description": "{{ packageDesc }}",
+    "keywords": [
+{{ include('snippets/partials/composer-keywords.twig') }}
+    ],
+{% if homepage %}
+    "homepage": "{{ homepage }}",
+{% endif %}
+    "license": "{{ license }}",
+    "type": "{{ packageType }}",
+    "authors": [
+        {
+            "name": "{{ author }}",
+            "email": "{{ email }}"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "require-dev": {
+        "aedart/license": "1.*",
+        "aedart/license-file-manager": "~1.6",
+        "aedart/testing": "~1.0",
+        "aedart/testing-gst": "~1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            {{ psr4|raw }}
+        }
+    },
+    "minimum-stability": "{{ minStability }}",
+    "scripts": {
+        "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
