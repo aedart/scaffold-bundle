@@ -1,0 +1,7 @@
+{% for key, keyword in packageKeywords %}
+{% if loop.last %}
+        "{{ keyword|trim|capitalize }}"
+{% else %}
+        "{{ keyword|trim|capitalize }}",
+{% endif %}
+{% endfor %}
