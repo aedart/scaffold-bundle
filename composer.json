@@ -20,7 +20,8 @@
   },
   "require-dev": {
     "aedart/license": "1.*",
-    "aedart/license-file-manager": "~1.5"
+    "aedart/license-file-manager": "~1.5",
+    "illuminate/support": "5.3.*"
   },
   "autoload": {
     "psr-4": {
