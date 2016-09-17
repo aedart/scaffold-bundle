@@ -49,6 +49,24 @@ if (! function_exists('get_composer_type_list')) {
     }
 }
 
+if (! function_exists('get_composer_min_stability_list')) {
+
+    /**
+     * Returns list of supported composer minimum stability
+     *
+     * @return array
+     */
+    function get_composer_min_stability_list(){
+        return [
+            'dev',
+            'alpha',
+            'beta',
+            'RC',
+            'stable'
+        ];
+    }
+}
+
 if (! function_exists('git_user_name')) {
 
     /**
