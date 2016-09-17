@@ -242,6 +242,20 @@ return [
         ],
 
         /*
+         * Package Type
+         */
+        'packageType' => [
+
+            'type'          => \Aedart\Scaffold\Contracts\Templates\Data\Type::CHOICE,
+
+            'question'      => 'Type of package?',
+
+            'choices'       => get_composer_type_list(),
+
+            'value'         => 'library',
+        ],
+
+        /*
          * Package Author
          */
         'author' => [
