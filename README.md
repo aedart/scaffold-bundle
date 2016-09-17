@@ -1,5 +1,10 @@
 # Scaffold Bundle
 
+[![Latest Stable Version](https://poser.pugx.org/aedart/scaffold-bundle/v/stable)](https://packagist.org/packages/aedart/scaffold-bundle)
+[![Total Downloads](https://poser.pugx.org/aedart/scaffold-bundle/downloads)](https://packagist.org/packages/aedart/scaffold-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/aedart/scaffold-bundle/v/unstable)](https://packagist.org/packages/aedart/scaffold-bundle)
+[![License](https://poser.pugx.org/aedart/scaffold-bundle/license)](https://packagist.org/packages/aedart/scaffold-bundle)
+
 Collection of scaffolds.
 
 This package requires [`aedart/scaffold`](https://github.com/aedart/scaffold) in order to make use of the available scaffolds.
