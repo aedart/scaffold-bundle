@@ -91,6 +91,17 @@ $scaffold['templates'] = [
             }
         ],
     ],
+
+    'aedartReadme' => [
+        'source'        => 'snippets/aedart-readme.md.twig',
+
+        'destination'   => [
+
+            'postProcess'   => function($answer, array $previousAnswers){
+                return 'README.md';
+            }
+        ],
+    ],
 ];
 
 /* ------------------------------------------------------------
