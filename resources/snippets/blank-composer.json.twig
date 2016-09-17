@@ -20,21 +20,17 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4"
+
     },
     "require-dev": {
-        "aedart/license": "1.*",
-        "aedart/license-file-manager": "~1.5"
+
     },
     "autoload": {
         "psr-4": {
             {{ psr4|raw }}
         }
     },
-    "minimum-stability": "stable",
-    "scripts": {
-        "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause"
-    },
+    "minimum-stability": "{{ minStability }}",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
