@@ -77,20 +77,20 @@ return [
     | ...etc
     */
     'folders' => [
-        'src' => [
-            'Contracts' => [
-                'Arrays',
-                'Booleans',
-                'Integers',
-                'Strings',
-            ],
-            'Traits' => [
-                'Arrays',
-                'Booleans',
-                'Integers',
-                'Strings',
-            ]
-        ]
+//        'src' => [
+//            'Contracts' => [
+//                'Arrays',
+//                'Booleans',
+//                'Integers',
+//                'Strings',
+//            ],
+//            'Traits' => [
+//                'Arrays',
+//                'Booleans',
+//                'Integers',
+//                'Strings',
+//            ]
+//        ]
     ],
 
     /* ------------------------------------------------------------
