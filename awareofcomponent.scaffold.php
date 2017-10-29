@@ -208,7 +208,9 @@ return [
         ],
 
         /*
-         * The data type of the property
+         * The data type (scalar type) of the property
+         *
+         * @see http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration
          */
         'dataType' => [
 
@@ -217,60 +219,16 @@ return [
             'question'      => 'What is the type of the property?',
 
             'choices'       => [
-                "string",
-                "int",
-                "float",
-                "bool",
-                "resource",
-                "null",
-                "callable",
                 "array",
-                "mixed",
-                "string[]",
-                "int[]",
-                "float[]",
-                "bool[]",
-                "resource[]",
-                "callable[]",
-                "array[]",
-                "mixed[]"
+                "callable",
+                "bool",
+                "float",
+                "int",
+                "string",
+                "iterable"
             ],
 
             'value'         => 'string',
-        ],
-
-        /*
-         * Scalar type (computed)
-         */
-        'scalarType' => [
-
-            'postProcess'   => function($answer, array $previousAnswers){
-                $dataType = $previousAnswers['dataType'];
-
-                if(strpos($dataType, '[]') !== false){
-                    return 'array';
-                }
-
-                // For casting... PHP 5.6.x
-                // @see http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
-                $supported = [
-                    'int',
-                    'integer',
-                    'bool',
-                    'boolean',
-                    'float',
-                    'double',
-                    'real',
-                    'string',
-                    'array',
-                    'object'
-                ];
-
-                if(in_array($dataType, $supported)){
-                    return $dataType;
-                }
-                return '';
-            }
         ],
 
         /*
@@ -403,36 +361,6 @@ return [
                 }
 
                 throw new \InvalidArgumentException(sprintf('Email "%s" is invalid', $answer));
-            }
-        ],
-
-        /*
-         * Cast to scalar type (computed)
-         */
-        'castType' => [
-
-            'postProcess'   => function($answer, array $previousAnswers){
-                $scalarType = $previousAnswers['scalarType'];
-
-                // For casting... PHP 5.6.x
-                // @see http://php.net/manual/en/language.types.type-juggling.php#language.types.typecasting
-                $supported = [
-                    'int',
-                    'integer',
-                    'bool',
-                    'boolean',
-                    'float',
-                    'double',
-                    'real',
-                    'string',
-                    //'array', // Should not be needed
-                    'object'
-                ];
-
-                if(in_array($scalarType, $supported)){
-                    return '(' .$scalarType . ') ';
-                }
-                return '';
             }
         ],
 
