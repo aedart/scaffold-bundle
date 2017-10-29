@@ -1,5 +1,9 @@
 <?php
 
+// Require helpers if not already required
+require_once __DIR__ . '/helpers/helpers.php';
+
+// Return scaffold
 return [
 
     /* ------------------------------------------------------------
