@@ -16,23 +16,23 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4"
+        "php": ">=7.1.0"
     },
     "require-dev": {
         "aedart/license": "1.*",
-        "aedart/license-file-manager": "~1.6",
-        "aedart/testing": "~1.0",
-        "aedart/testing-gst": "~1.2"
+        "aedart/license-file-manager": "~1.8",
+        "aedart/testing-gst": "~2.0"
     },
     "autoload": {
         "psr-4": {
             {{ psr4|raw }}
         }
     },
-    "minimum-stability": "{{ minStability }}",
     "scripts": {
-        "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause"
+        "post-update-cmd": "vendor/bin/license-manager license:copy vendor/aedart/license/aedart/BSD-3-Clause --ansi"
     },
+    "minimum-stability": "{{ minStability }}",
+    "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
