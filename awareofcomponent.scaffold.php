@@ -264,31 +264,6 @@ return [
         ],
 
         /*
-         * The setter method's input scalar type, if any possible (computed)
-         *
-         * For PHP 7.x, this needs to be changed!
-         */
-        'inputType' => [
-
-            'postProcess'   => function($answer, array $previousAnswers){
-                $dataType = $previousAnswers['dataType'];
-
-                $supported = [
-                    'array',
-                    'callable'
-                ];
-
-                if(in_array($dataType, $supported)){
-                    return $dataType . ' ';
-                }
-                if(strpos($dataType, '[]') !== false){
-                    return 'array ';
-                }
-                return '';
-            }
-        ],
-
-        /*
          * Trait's sub-namespace
          */
         'traitSubNamespace' => [
