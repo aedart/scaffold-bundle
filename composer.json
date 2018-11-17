@@ -1,4 +1,5 @@
 {
+  "abandoned": true,
   "name": "aedart/scaffold-bundle",
   "description": "Collection of scaffolds",
   "keywords": [

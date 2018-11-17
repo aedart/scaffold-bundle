@@ -1,9 +1,11 @@
-# Scaffold Bundle
+# Abandoned - Scaffold Bundle
 
 [![Latest Stable Version](https://poser.pugx.org/aedart/scaffold-bundle/v/stable)](https://packagist.org/packages/aedart/scaffold-bundle)
 [![Total Downloads](https://poser.pugx.org/aedart/scaffold-bundle/downloads)](https://packagist.org/packages/aedart/scaffold-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/aedart/scaffold-bundle/v/unstable)](https://packagist.org/packages/aedart/scaffold-bundle)
 [![License](https://poser.pugx.org/aedart/scaffold-bundle/license)](https://packagist.org/packages/aedart/scaffold-bundle)
+
+**This project is no longer maintained.**
 
 Collection of scaffolds.
 
